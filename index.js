@@ -20,8 +20,17 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     const categoriesCollection = client
-      .db("used-cars")
+      .db("used-carz")
       .collection("categories");
+
+    // Create JWT Token
+    app.post("/jwt", (req, res) => {
+      const user = req.body;
+      const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+        expiresIn: "1d",
+      });
+      res.send({ token });
+    });
 
     app.get("/categories", async (req, res) => {
       const query = {};
