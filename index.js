@@ -1,9 +1,38 @@
 const express = require("express");
 const app = express();
-const cors = require("cors");
+require("dotenv").config();
 const port = process.env.PORT || "5000";
+const jwt = require("jsonwebtoken");
+const cors = require("cors");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
+// middleware
 app.use(cors());
+app.use(express.json());
+
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.mzkazhr.mongodb.net/?retryWrites=true&w=majority`;
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1,
+});
+
+async function run() {
+  try {
+    const categoriesCollection = client
+      .db("used-cars")
+      .collection("categories");
+
+    app.get("/categories", async (req, res) => {
+      const query = {};
+      const result = await categoriesCollection.find(query).toArray();
+      res.send(result);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+run();
 
 app.get("/", (req, res) => {
   res.send("Hello World");
