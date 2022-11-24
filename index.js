@@ -24,6 +24,7 @@ async function run() {
       .collection("categories");
     const usersCollection = client.db("used-carz").collection("users");
     const productsCollection = client.db("used-carz").collection("products");
+    const bookingsCollection = client.db("used-carz").collection("bookings");
 
     // Create JWT Token
     app.post("/jwt", (req, res) => {
@@ -43,7 +44,6 @@ async function run() {
 
     app.post("/users", async (req, res) => {
       const user = req.body;
-      console.log(user);
       const result = await usersCollection.insertOne(user);
       res.send(result);
     });
@@ -65,6 +65,13 @@ async function run() {
         .limit(3)
         .toArray();
       res.send(products);
+    });
+
+    // Create (Bookings)
+    app.post("/bookings", async (req, res) => {
+      const booking = req.body;
+      const result = await bookingsCollection.insertOne(booking);
+      res.send(result);
     });
   } catch (error) {
     console.log(error);
