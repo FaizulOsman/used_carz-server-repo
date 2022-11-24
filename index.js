@@ -53,7 +53,17 @@ async function run() {
       const id = req.params.id;
       const query = { categoryId: id };
       const products = await productsCollection.find(query).toArray();
-      console.log(products);
+      res.send(products);
+    });
+
+    // Read (All Products)
+    app.get("/products", async (req, res) => {
+      const query = {};
+      const products = await productsCollection
+        .find(query)
+        .sort({ _id: -1 })
+        .limit(3)
+        .toArray();
       res.send(products);
     });
   } catch (error) {

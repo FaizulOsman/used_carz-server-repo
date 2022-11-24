@@ -8,7 +8,8 @@
     "resalePrice": 1200,
     "originalPrice": 2200,
     "yearsOfUse": 3,
-    "postedTime": "date",
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
     "isVerified": true,
     "condition": "Good",
     "mobile": "+8801000000000"
@@ -22,8 +23,9 @@
     "resalePrice": 1600,
     "originalPrice": 2500,
     "yearsOfUse": 2,
-    "postedTime": "date",
-    "isVerified": false,
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
+    "isVerified": true,
     "condition": "Awesome",
     "mobile": "+8801234567890"
   },
@@ -36,9 +38,10 @@
     "resalePrice": 1200,
     "originalPrice": 2200,
     "yearsOfUse": 3,
-    "postedTime": "date",
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
     "isVerified": true,
-    "condition": "Good",
+    "condition": "Perfect",
     "mobile": "+8801000000000"
   },
   {
@@ -50,8 +53,9 @@
     "resalePrice": 1600,
     "originalPrice": 2500,
     "yearsOfUse": 2,
-    "postedTime": "date",
-    "isVerified": false,
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
+    "isVerified": true,
     "condition": "Awesome",
     "mobile": "+8801234567890"
   },
@@ -64,9 +68,10 @@
     "resalePrice": 1600,
     "originalPrice": 2500,
     "yearsOfUse": 2,
-    "postedTime": "date",
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
     "isVerified": false,
-    "condition": "Awesome",
+    "condition": "Good",
     "mobile": "+8801234567890"
   },
   {
@@ -78,9 +83,10 @@
     "resalePrice": 1200,
     "originalPrice": 2200,
     "yearsOfUse": 2,
-    "postedTime": "date",
-    "isVerified": false,
-    "condition": "Good",
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
+    "isVerified": true,
+    "condition": "Perfect",
     "mobile": "+8801000000000"
   },
   {
@@ -92,7 +98,8 @@
     "resalePrice": 1600,
     "originalPrice": 2500,
     "yearsOfUse": 2,
-    "postedTime": "date",
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
     "isVerified": false,
     "condition": "Awesome",
     "mobile": "+8801234567890"
@@ -106,8 +113,9 @@
     "resalePrice": 1200,
     "originalPrice": 2200,
     "yearsOfUse": 2,
-    "postedTime": "date",
-    "isVerified": false,
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
+    "isVerified": true,
     "condition": "Good",
     "mobile": "+8801000000000"
   },
@@ -120,7 +128,8 @@
     "resalePrice": 1600,
     "originalPrice": 2500,
     "yearsOfUse": 2,
-    "postedTime": "date",
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
     "isVerified": false,
     "condition": "Awesome",
     "mobile": "+8801234567890"
@@ -134,9 +143,10 @@
     "resalePrice": 1200,
     "originalPrice": 2200,
     "yearsOfUse": 2,
-    "postedTime": "date",
-    "isVerified": false,
-    "condition": "Good",
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
+    "isVerified": true,
+    "condition": "Perfect",
     "mobile": "+8801000000000"
   },
   {
@@ -148,8 +158,9 @@
     "resalePrice": 1600,
     "originalPrice": 2500,
     "yearsOfUse": 2,
-    "postedTime": "date",
-    "isVerified": false,
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
+    "isVerified": true,
     "condition": "Awesome",
     "mobile": "+8801234567890"
   },
@@ -162,7 +173,8 @@
     "resalePrice": 1200,
     "originalPrice": 2200,
     "yearsOfUse": 2,
-    "postedTime": "date",
+    "postedDate": "25-11-2022",
+    "postedTime": "12:02:58 AM",
     "isVerified": false,
     "condition": "Good",
     "mobile": "+8801000000000"
