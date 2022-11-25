@@ -42,6 +42,7 @@ async function run() {
     const usersCollection = client.db("used-carz").collection("users");
     const productsCollection = client.db("used-carz").collection("products");
     const bookingsCollection = client.db("used-carz").collection("bookings");
+    const reportsCollection = client.db("used-carz").collection("reports");
 
     // Check Admin and verify
     const verifyAdmin = async (req, res, next) => {
@@ -197,7 +198,7 @@ async function run() {
     });
 
     // Update sold Status (Products)
-    app.put("/products/:id", verifyJWT, async (req, res) => {
+    app.put("/products/sold/:id", verifyJWT, async (req, res) => {
       const id = req.params.id;
       console.log(id);
       const filter = { _id: ObjectId(id) };
@@ -212,6 +213,47 @@ async function run() {
         updatedDoc,
         options
       );
+      res.send(result);
+    });
+
+    // Update Available Status (Products)
+    app.put("/products/available/:id", verifyJWT, async (req, res) => {
+      const id = req.params.id;
+      console.log(id);
+      const filter = { _id: ObjectId(id) };
+      const options = { upsert: true };
+      const updatedDoc = {
+        $set: {
+          status: "available",
+        },
+      };
+      const result = await productsCollection.updateOne(
+        filter,
+        updatedDoc,
+        options
+      );
+      res.send(result);
+    });
+
+    // Create (Reports)
+    app.post("/reports", async (req, res) => {
+      const report = req.body;
+      const result = await reportsCollection.insertOne(report);
+      res.send(result);
+    });
+
+    // Get (Reports)
+    app.get("/reports", async (req, res) => {
+      const query = {};
+      const reports = await reportsCollection.find(query).toArray();
+      res.send(reports);
+    });
+
+    // Delete (Report)
+    app.delete("/reports/:id", verifyJWT, async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const result = await reportsCollection.deleteOne(query);
       res.send(result);
     });
   } catch (error) {
