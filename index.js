@@ -84,17 +84,6 @@ async function run() {
       res.send(products);
     });
 
-    // Read (All Products)
-    app.get("/products", async (req, res) => {
-      const query = {};
-      const products = await productsCollection
-        .find(query)
-        .sort({ _id: -1 })
-        .limit(3)
-        .toArray();
-      res.send(products);
-    });
-
     // Create (Bookings)
     app.post("/bookings", async (req, res) => {
       const booking = req.body;
@@ -157,10 +146,55 @@ async function run() {
       res.send(result);
     });
 
+    // Read (All Products)
+    app.get("/myproducts", verifyJWT, async (req, res) => {
+      const email = req.query.email;
+      const decodedEmail = req.decoded.email;
+
+      if (email !== decodedEmail) {
+        return res.status(403).send({ message: "Forbidden Access" });
+      }
+
+      const query = { sellerEmail: email };
+      const products = await productsCollection.find(query).toArray();
+
+      res.send(products);
+    });
+
+    // Read (Three Products)
+    app.get("/products", async (req, res) => {
+      const query = {};
+      const products = await productsCollection
+        .find(query)
+        .sort({ _id: -1 })
+        .limit(3)
+        .toArray();
+      res.send(products);
+    });
+
     // Create (Products)
     app.post("/products", async (req, res) => {
       const product = req.body;
       const result = await productsCollection.insertOne(product);
+      res.send(result);
+    });
+
+    // Update sold Status (Products)
+    app.put("/products/:id", verifyJWT, async (req, res) => {
+      const id = req.params.id;
+      console.log(id);
+      const filter = { _id: ObjectId(id) };
+      const options = { upsert: true };
+      const updatedDoc = {
+        $set: {
+          status: "sold",
+        },
+      };
+      const result = await productsCollection.updateOne(
+        filter,
+        updatedDoc,
+        options
+      );
       res.send(result);
     });
   } catch (error) {

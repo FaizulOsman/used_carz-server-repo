@@ -4,6 +4,7 @@
     "productName": "Lamborghini Urus",
     "categoryId": "637f4514e056124f16c4f51f",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Dhaka",
     "resalePrice": 1200,
     "originalPrice": 2200,
@@ -12,13 +13,16 @@
     "postedTime": "12:02:58 AM",
     "isVerified": true,
     "condition": "Good",
-    "mobile": "+8801000000000"
+    "mobile": "+8801000000000",
+    "status": "available",
+    "description": "Lamborghini is the world's first Super Sport Utility Vehicle, in which luxury, sportiness and performance meet comfort and versatility."
   },
   {
     "img": "https://i.ibb.co/hW5SHZN/lamborghini2.jpg",
     "productName": "Lamborghini Diablo",
     "categoryId": "637f4514e056124f16c4f51f",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Chattogram",
     "resalePrice": 1600,
     "originalPrice": 2500,
@@ -27,13 +31,16 @@
     "postedTime": "12:02:58 AM",
     "isVerified": true,
     "condition": "Awesome",
-    "mobile": "+8801234567890"
+    "mobile": "+8801234567890",
+    "status": "available",
+    "description": "Lamborghini is the world's first Super Sport Utility Vehicle, in which luxury, sportiness and performance meet comfort and versatility."
   },
   {
     "img": "https://i.ibb.co/3vHvYGy/lamborghini3.jpg",
     "productName": "Lamborghini Miura",
     "categoryId": "637f4514e056124f16c4f51f",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Rajshahi",
     "resalePrice": 1200,
     "originalPrice": 2200,
@@ -42,13 +49,16 @@
     "postedTime": "12:02:58 AM",
     "isVerified": true,
     "condition": "Perfect",
-    "mobile": "+8801000000000"
+    "mobile": "+8801000000000",
+    "status": "available",
+    "description": "Lamborghini is the world's first Super Sport Utility Vehicle, in which luxury, sportiness and performance meet comfort and versatility."
   },
   {
     "img": "https://i.ibb.co/SKjwy1V/lamborghini4.jpg",
     "productName": "Lamborghini Aventador",
     "categoryId": "637f4514e056124f16c4f51f",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Sylhet",
     "resalePrice": 1600,
     "originalPrice": 2500,
@@ -56,14 +66,17 @@
     "postedDate": "25-11-2022",
     "postedTime": "12:02:58 AM",
     "isVerified": true,
-    "condition": "Awesome",
-    "mobile": "+8801234567890"
+    "condition": "Fair",
+    "mobile": "+8801234567890",
+    "status": "available",
+    "description": "Lamborghini is the world's first Super Sport Utility Vehicle, in which luxury, sportiness and performance meet comfort and versatility."
   },
   {
     "img": "https://i.ibb.co/3Bk2hNB/porsche1.jpg",
     "productName": "Porsche 911",
     "categoryId": "637f4514e056124f16c4f520",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Chattogram",
     "resalePrice": 1600,
     "originalPrice": 2500,
@@ -72,13 +85,16 @@
     "postedTime": "12:02:58 AM",
     "isVerified": false,
     "condition": "Good",
-    "mobile": "+8801234567890"
+    "mobile": "+8801234567890",
+    "status": "available",
+    "description": "The company is best known for its powerful, precise-handling sports cars. While capable on track, Porsches distinguish themselves by being entertaining on the street and comfortable and durable enough for daily driving."
   },
   {
     "img": "https://i.ibb.co/ZSq4Svg/porsche2.jpg",
     "productName": "Porsche Cayenne",
     "categoryId": "637f4514e056124f16c4f520",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Dhaka",
     "resalePrice": 1200,
     "originalPrice": 2200,
@@ -87,13 +103,16 @@
     "postedTime": "12:02:58 AM",
     "isVerified": true,
     "condition": "Perfect",
-    "mobile": "+8801000000000"
+    "mobile": "+8801000000000",
+    "status": "available",
+    "description": "The company is best known for its powerful, precise-handling sports cars. While capable on track, Porsches distinguish themselves by being entertaining on the street and comfortable and durable enough for daily driving."
   },
   {
     "img": "https://i.ibb.co/M9v0DQR/porsche3.jpg",
     "productName": "Porsche Taycan",
     "categoryId": "637f4514e056124f16c4f520",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Sylhet",
     "resalePrice": 1600,
     "originalPrice": 2500,
@@ -102,13 +121,16 @@
     "postedTime": "12:02:58 AM",
     "isVerified": false,
     "condition": "Awesome",
-    "mobile": "+8801234567890"
+    "mobile": "+8801234567890",
+    "status": "available",
+    "description": "The company is best known for its powerful, precise-handling sports cars. While capable on track, Porsches distinguish themselves by being entertaining on the street and comfortable and durable enough for daily driving."
   },
   {
     "img": "https://i.ibb.co/bbWB24Z/porsche4.jpg",
     "productName": "Porsche 930",
     "categoryId": "637f4514e056124f16c4f520",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Rajshahi",
     "resalePrice": 1200,
     "originalPrice": 2200,
@@ -116,14 +138,17 @@
     "postedDate": "25-11-2022",
     "postedTime": "12:02:58 AM",
     "isVerified": true,
-    "condition": "Good",
-    "mobile": "+8801000000000"
+    "condition": "Fair",
+    "mobile": "+8801000000000",
+    "status": "available",
+    "description": "The company is best known for its powerful, precise-handling sports cars. While capable on track, Porsches distinguish themselves by being entertaining on the street and comfortable and durable enough for daily driving."
   },
   {
     "img": "https://i.ibb.co/R2NwdC1/tesla1.jpg",
     "productName": "Tesla Cybertruck",
     "categoryId": "637f4514e056124f16c4f521",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Chattogram",
     "resalePrice": 1600,
     "originalPrice": 2500,
@@ -132,13 +157,16 @@
     "postedTime": "12:02:58 AM",
     "isVerified": false,
     "condition": "Awesome",
-    "mobile": "+8801234567890"
+    "mobile": "+8801234567890",
+    "status": "available",
+    "description": "Tesla's Model S was the first mass-market car to prove that EVs can be exciting to drive, viable as daily transportation, and usable for long trips."
   },
   {
     "img": "https://i.ibb.co/y0bW3jP/tesla2.jpg",
     "productName": "Tesla Model 3",
     "categoryId": "637f4514e056124f16c4f521",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Dhaka",
     "resalePrice": 1200,
     "originalPrice": 2200,
@@ -147,13 +175,16 @@
     "postedTime": "12:02:58 AM",
     "isVerified": true,
     "condition": "Perfect",
-    "mobile": "+8801000000000"
+    "mobile": "+8801000000000",
+    "status": "available",
+    "description": "Tesla's Model S was the first mass-market car to prove that EVs can be exciting to drive, viable as daily transportation, and usable for long trips."
   },
   {
     "img": "https://i.ibb.co/1Gvdjzj/tesla3.jpg",
     "productName": "Tesla Model S",
     "categoryId": "637f4514e056124f16c4f521",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Sylhet",
     "resalePrice": 1600,
     "originalPrice": 2500,
@@ -161,14 +192,17 @@
     "postedDate": "25-11-2022",
     "postedTime": "12:02:58 AM",
     "isVerified": true,
-    "condition": "Awesome",
-    "mobile": "+8801234567890"
+    "condition": "Fair",
+    "mobile": "+8801234567890",
+    "status": "available",
+    "description": "Tesla's Model S was the first mass-market car to prove that EVs can be exciting to drive, viable as daily transportation, and usable for long trips."
   },
   {
     "img": "https://i.ibb.co/CbPJW1s/tesla4.jpg",
     "productName": "Tesla Model X",
     "categoryId": "637f4514e056124f16c4f521",
     "sellerName": "Johnny Depp",
+    "sellerEmail": "johnny@depp.com",
     "location": "Rajshahi",
     "resalePrice": 1200,
     "originalPrice": 2200,
@@ -177,6 +211,8 @@
     "postedTime": "12:02:58 AM",
     "isVerified": false,
     "condition": "Good",
-    "mobile": "+8801000000000"
+    "mobile": "+8801000000000",
+    "status": "available",
+    "description": "Tesla's Model S was the first mass-market car to prove that EVs can be exciting to drive, viable as daily transportation, and usable for long trips."
   }
 ]
