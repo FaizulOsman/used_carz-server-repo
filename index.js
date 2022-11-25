@@ -102,6 +102,29 @@ async function run() {
       res.send(result);
     });
 
+    // Get/Read (Booking/Orders)
+    app.get("/bookings", verifyJWT, async (req, res) => {
+      const email = req.query.email;
+      const decodedEmail = req.decoded.email;
+
+      if (email !== decodedEmail) {
+        return res.status(403).send({ message: "Forbidden Access" });
+      }
+
+      const query = { buyerEmail: email };
+      const bookings = await bookingsCollection.find(query).toArray();
+
+      res.send(bookings);
+    });
+
+    // Delete (Booking)
+    app.delete("/bookings/:id", verifyJWT, async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const result = await bookingsCollection.deleteOne(query);
+      res.send(result);
+    });
+
     // Get Admin
     app.get("/users/admin/:email", async (req, res) => {
       const email = req.params.email;
