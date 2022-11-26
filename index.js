@@ -138,6 +138,14 @@ async function run() {
       res.send(users);
     });
 
+    // Get User (Specific)
+    app.get("/users/:email", async (req, res) => {
+      const email = req.params.email;
+      const query = { email: email };
+      const users = await usersCollection.findOne(query);
+      res.send(users);
+    });
+
     // Delete (Product)
     app.delete("/users/:id", verifyJWT, async (req, res) => {
       const id = req.params.id;
@@ -154,6 +162,24 @@ async function run() {
       const updatedDoc = {
         $set: {
           acting: "admin",
+        },
+      };
+      const result = await usersCollection.updateOne(
+        filter,
+        updatedDoc,
+        options
+      );
+      res.send(result);
+    });
+
+    // Update user (Verify)
+    app.put("/users/verify/:id", verifyJWT, verifyAdmin, async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: ObjectId(id) };
+      const options = { upsert: true };
+      const updatedDoc = {
+        $set: {
+          verifyStatus: "verified",
         },
       };
       const result = await usersCollection.updateOne(
