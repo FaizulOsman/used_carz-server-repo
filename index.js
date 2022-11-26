@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
 // middleware
 app.use(cors());
 app.use(express.json());
@@ -43,6 +45,7 @@ async function run() {
     const productsCollection = client.db("used-carz").collection("products");
     const bookingsCollection = client.db("used-carz").collection("bookings");
     const reportsCollection = client.db("used-carz").collection("reports");
+    const paymentsCollection = client.db("used-carz").collection("payments");
 
     // Check Admin and verify
     const verifyAdmin = async (req, res, next) => {
@@ -115,11 +118,27 @@ async function run() {
       res.send(result);
     });
 
+    // Get Bookings (Specific)
     app.get("/bookings/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
       const booking = await bookingsCollection.findOne(query);
       res.send(booking);
+    });
+
+    // Read (All Products)
+    app.get("/myproductsfrombooking", verifyJWT, async (req, res) => {
+      const email = req.query.email;
+      const decodedEmail = req.decoded.email;
+
+      if (email !== decodedEmail) {
+        return res.status(403).send({ message: "Forbidden Access" });
+      }
+
+      const query = { sellerEmail: email };
+      const products = await bookingsCollection.find(query).toArray();
+
+      res.send(products);
     });
 
     // Get Admin
@@ -295,6 +314,42 @@ async function run() {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
       const result = await reportsCollection.deleteOne(query);
+      res.send(result);
+    });
+
+    // Create Payment Intent
+    app.post("/create-payment-intent", async (req, res) => {
+      const booking = req.body;
+      const price = booking.price;
+      const amount = price * 100;
+
+      const paymentIntent = await stripe.paymentIntents.create({
+        currency: "usd",
+        amount: amount,
+        payment_method_types: ["card"],
+      });
+      res.send({
+        clientSecret: paymentIntent.client_secret,
+      });
+    });
+
+    // Create Payment
+    app.post("/payments", async (req, res) => {
+      const payment = req.body;
+      const result = await paymentsCollection.insertOne(payment);
+      const _id = payment.bookingId;
+      const filter = { _id: ObjectId(_id) };
+      const updatedDoc = {
+        $set: {
+          paid: true,
+          transactionId: payment.transactionId,
+        },
+      };
+      const updateResult = await bookingsCollection.updateOne(
+        filter,
+        updatedDoc
+      );
+
       res.send(result);
     });
   } catch (error) {
