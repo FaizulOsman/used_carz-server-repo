@@ -46,6 +46,7 @@ async function run() {
     const bookingsCollection = client.db("used-carz").collection("bookings");
     const reportsCollection = client.db("used-carz").collection("reports");
     const paymentsCollection = client.db("used-carz").collection("payments");
+    const blogsCollection = client.db("used-carz").collection("blogs");
 
     // Check Admin and verify
     const verifyAdmin = async (req, res, next) => {
@@ -118,6 +119,13 @@ async function run() {
       const query = { _id: ObjectId(id) };
       const booking = await bookingsCollection.findOne(query);
       res.send(booking);
+    });
+
+    // Get Bookings (Specific)
+    app.get("/allbookings", async (req, res) => {
+      const query = {};
+      const bookings = await bookingsCollection.find(query).toArray();
+      res.send(bookings);
     });
 
     // Read (All Products)
@@ -246,7 +254,6 @@ async function run() {
       const products = await productsCollection
         .find(query)
         .sort({ _id: -1 })
-        .limit(3)
         .toArray();
       res.send(products);
     });
@@ -358,8 +365,18 @@ async function run() {
         filter,
         updatedDoc
       );
+      const f = { _id: ObjectId(payment.productId) };
+      const updateProduct = await productsCollection.updateOne(f, updatedDoc);
 
       res.send(result);
+    });
+
+    //   READ (Blogs)
+    app.get("/blogs", async (req, res) => {
+      const query = {};
+      const cursor = blogsCollection.find(query);
+      const blogs = await cursor.toArray();
+      res.send(blogs);
     });
   } catch (error) {
     console.log(error);
