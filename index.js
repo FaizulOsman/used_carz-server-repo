@@ -74,12 +74,6 @@ async function run() {
       res.send(categories);
     });
 
-    app.post("/users", async (req, res) => {
-      const user = req.body;
-      const result = await usersCollection.insertOne(user);
-      res.send(result);
-    });
-
     // Read (Products)
     app.get("/category/:id", async (req, res) => {
       const id = req.params.id;
@@ -139,6 +133,13 @@ async function run() {
       const products = await bookingsCollection.find(query).toArray();
 
       res.send(products);
+    });
+
+    // Create (User)
+    app.post("/users", async (req, res) => {
+      const user = req.body;
+      const result = await usersCollection.insertOne(user);
+      res.send(result);
     });
 
     // Get Admin
