@@ -48,7 +48,7 @@ async function run() {
     const paymentsCollection = client.db("used-carz").collection("payments");
     const blogsCollection = client.db("used-carz").collection("blogs");
 
-    // Check Admin and verify
+    // Admin verify
     const verifyAdmin = async (req, res, next) => {
       const decodedEmail = req.decoded.email;
       const query = { email: decodedEmail };
@@ -59,7 +59,7 @@ async function run() {
       next();
     };
 
-    // Check Seller and verify
+    // Seller verify
     const verifySeller = async (req, res, next) => {
       const decodedEmail = req.decoded.email;
       const query = { email: decodedEmail };
