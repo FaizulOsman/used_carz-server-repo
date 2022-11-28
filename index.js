@@ -59,6 +59,17 @@ async function run() {
       next();
     };
 
+    // Check Seller and verify
+    const verifySeller = async (req, res, next) => {
+      const decodedEmail = req.decoded.email;
+      const query = { email: decodedEmail };
+      const user = await usersCollection.findOne(query);
+      if (user?.acting !== "seller") {
+        return res.status(403).send({ message: "Forbidden Access" });
+      }
+      next();
+    };
+
     // Create JWT Token
     app.post("/jwt", (req, res) => {
       const user = req.body;
@@ -150,6 +161,14 @@ async function run() {
       res.send(result);
     });
 
+    // Read (All Products)
+    app.get("/checksellerverify", async (req, res) => {
+      const email = req.query.email;
+      const query = { email: email };
+      const currentUser = await usersCollection.findOne(query);
+      res.send(currentUser);
+    });
+
     // Get Admin
     app.get("/users/admin/:email", async (req, res) => {
       const email = req.params.email;
@@ -222,7 +241,7 @@ async function run() {
       const options = { upsert: true };
       const updatedDoc = {
         $set: {
-          verifyStatus: "verified",
+          isVerified: true,
         },
       };
       const result = await usersCollection.updateOne(
@@ -250,7 +269,7 @@ async function run() {
 
     // Read (Three Products)
     app.get("/products", async (req, res) => {
-      const query = {};
+      const query = { isAdvertised: true };
       const products = await productsCollection
         .find(query)
         .sort({ _id: -1 })
@@ -259,7 +278,7 @@ async function run() {
     });
 
     // Create (Products)
-    app.post("/products", async (req, res) => {
+    app.post("/products", verifyJWT, verifySeller, async (req, res) => {
       const product = req.body;
       const result = await productsCollection.insertOne(product);
       res.send(result);
@@ -276,7 +295,6 @@ async function run() {
     // Update sold Status (Products)
     app.put("/products/sold/:id", verifyJWT, async (req, res) => {
       const id = req.params.id;
-      console.log(id);
       const filter = { _id: ObjectId(id) };
       const options = { upsert: true };
       const updatedDoc = {
@@ -295,12 +313,47 @@ async function run() {
     // Update Available Status (Products)
     app.put("/products/available/:id", verifyJWT, async (req, res) => {
       const id = req.params.id;
-      console.log(id);
       const filter = { _id: ObjectId(id) };
       const options = { upsert: true };
       const updatedDoc = {
         $set: {
           status: "available",
+        },
+      };
+      const result = await productsCollection.updateOne(
+        filter,
+        updatedDoc,
+        options
+      );
+      res.send(result);
+    });
+
+    // Update Advertise Status (True)
+    app.put("/products/makeadvertise/:id", verifyJWT, async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: ObjectId(id) };
+      const options = { upsert: true };
+      const updatedDoc = {
+        $set: {
+          isAdvertised: true,
+        },
+      };
+      const result = await productsCollection.updateOne(
+        filter,
+        updatedDoc,
+        options
+      );
+      res.send(result);
+    });
+
+    // Update Advertise Status (false)
+    app.put("/products/removeadvertise/:id", verifyJWT, async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: ObjectId(id) };
+      const options = { upsert: true };
+      const updatedDoc = {
+        $set: {
+          isAdvertised: false,
         },
       };
       const result = await productsCollection.updateOne(
